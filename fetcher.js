@@ -8,16 +8,14 @@ request(urlToUse, (error, response, body) => {
   // docs request for format. 
   if (error || response.statusCode !== 200) {
     console.log(`${error}!`)
+  } 
+  
+  if (!pathToUse) {
+    console.log(`Path ${pathToUse} cannot be found`)
   } else {
-
-
     fs.writeFile(pathToUse, body, () => {
-
-
-      console.log(` Dowloaded and saved ${urlToUse} (${body.length}bytes) to ${pathToUse}`)
-
+    console.log(` Dowloaded and saved ${urlToUse} (${body.length}bytes) to ${pathToUse}`)
     })
-
   }
 })  
 
